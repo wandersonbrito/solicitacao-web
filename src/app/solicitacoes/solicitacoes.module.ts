@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 import { SolicitacoesRoutingModule } from './solicitacoes-routing.module';
 import { SolicitacoesFormComponent } from './solicitacoes-form/solicitacoes-form.component';
@@ -9,7 +10,8 @@ import { SolicitacoesFormComponent } from './solicitacoes-form/solicitacoes-form
   declarations: [SolicitacoesFormComponent],
   imports: [
     CommonModule,
-    SolicitacoesRoutingModule
+    SolicitacoesRoutingModule,
+    FormsModule
   ], exports: [
     SolicitacoesFormComponent
   ]
