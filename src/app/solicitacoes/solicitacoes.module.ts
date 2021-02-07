@@ -7,7 +7,9 @@ import { SolicitacoesFormComponent } from './solicitacoes-form/solicitacoes-form
 
 
 @NgModule({
-  declarations: [SolicitacoesFormComponent],
+  declarations: [
+    SolicitacoesFormComponent
+  ],
   imports: [
     CommonModule,
     SolicitacoesRoutingModule,

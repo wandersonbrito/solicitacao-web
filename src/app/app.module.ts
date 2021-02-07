@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { TemplateModule } from './template/template.module';
 import { HomeComponent } from './home/home.component'
 import { SolicitacoesModule } from './solicitacoes/solicitacoes.module';
-import { SolicitacoesRoutingModule } from './solicitacoes/solicitacoes-routing.module';
+
 
 @NgModule({
   declarations: [
@@ -18,7 +18,7 @@ import { SolicitacoesRoutingModule } from './solicitacoes/solicitacoes-routing.m
     BrowserModule,
     AppRoutingModule,
     TemplateModule,
-    SolicitacoesRoutingModule
+    SolicitacoesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
