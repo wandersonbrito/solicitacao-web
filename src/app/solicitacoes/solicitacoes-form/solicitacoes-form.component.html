@@ -3,47 +3,53 @@
     <li class="breadcrumb-item active">Realizar solicitação</li>
 </ol>
 <div class  = "container">
-    <form>
+    <form #solicitacaoForm="ngForm" (ngSubmit)="onSubmit()">
         <div class = "row">
             <div class = "col-md-6">
                 <div class = "form-group">
                     <label>id:</label>
-                    <input type="text" class="form-control" disabled ="true"/>
+                    <input type="text" [ngModel]="solicitacao.id" name="id"  class="form-control" 
+                    disabled ="true"/>
                 </div>
             </div>  
             <div class = "col-md-6">
                 <div class = "form-group">
                     <label>Data Solicitação:</label>
-                    <input type="text" class="form-control" disabled ="true"/>
+                    <input type="text" class="form-control"
+                        [ngModel]="solicitacao.dataSolicitacao" name="dataSolicitacao" disabled ="true"/>
                 </div>
             </div>
             <div class = "col-md-6">
                 <div class = "form-group">
-                    <label>id_operacao: *</label>
-                    <input type="text" class="form-control"/>
+                    <label>Id_operacao: *</label>
+                    <input type="text" class="form-control"
+                    [(ngModel)]="solicitacao.idOperacao" name="idOperacao"/>
                 </div>
             </div>  
             <div class = "col-md-6">
                 <div class = "form-group">
                     <label>tipo_documento: *</label>
-                    <input type="text" class="form-control" value="{{solcitacao.tipoDocumento}}">
+                    <input type="text" class="form-control" 
+                        [(ngModel)]="solicitacao.tipoDocumento" name="tipoDocumento"/>
                 </div>
             </div> 
             <div class = "col-md-6">
                 <div class = "form-group">
                     <label>Origem_solicitacao: *</label>
-                    <input type="text" class="form-control" />
+                    <input type="text" class="form-control" 
+                    [(ngModel)]="solicitacao.origemSolicitacao" name="origemSolicitacao"/>
                 </div>
             </div> 
             <div class = "col-md-6">
                 <div class = "form-group">
                     <label>cod_usuario_solicitante: *</label>
-                    <input type="text" class="form-control" />
+                    <input type="text" class="form-control"
+                        [(ngModel)]="solicitacao.codUsuarioSolicitante" name="codUsuarioSolicitante"/>
                 </div>
             </div> 
             <div class="row">
                 <div class = "col-md-2">
-                    <button type="submit" class="btn btn-success" (click)="clicar()">
+                    <button type="submit" class="btn btn-success" >
                         <i class="fa fa-save"></i>Salvar
                     </button>
                 </div>

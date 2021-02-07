@@ -9,19 +9,17 @@ import { Solicitacao } from '../solicitacao';
 })
 export class SolicitacoesFormComponent implements OnInit {
 
-  solcitacao:Solicitacao;
-  tipoDocumento:string='w';
+  solicitacao:Solicitacao;
 
   constructor() { 
-    this.solcitacao = new Solicitacao();
-    this.solcitacao.tipoDocumento ='www';
+    this.solicitacao = new Solicitacao();
   }
 
   ngOnInit(): void {
   }
 
-  clicar(){
-    console.log('Cliquei  ')
+  onSubmit(){
+    console.log(this.solicitacao)
   }
 
 }
