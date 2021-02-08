@@ -5,6 +5,17 @@
 <div class  = "container">
     <form #solicitacaoForm="ngForm" (ngSubmit)="onSubmit()">
         <div class = "row">
+            <div class = "col-md-12">
+                <div class="alert alert-success" role="alert" *ngIf="success == true">
+                    Solicitação Salva/Atualizada com Sucesso!
+                </div>
+                <div class="alert alert-danger" role="alert" *ngFor="let erro of errors">
+                    {{ erro }}
+                </div>
+
+            </div>  
+        </div>
+        <div class = "row" *ngIf="solicitacao.id">
             <div class = "col-md-6">
                 <div class = "form-group">
                     <label>id:</label>
@@ -19,6 +30,9 @@
                         [ngModel]="solicitacao.dataSolicitacao" name="dataSolicitacao" disabled ="true"/>
                 </div>
             </div>
+        </div>
+
+        <div class = "row">
             <div class = "col-md-6">
                 <div class = "form-group">
                     <label>Id_operacao: *</label>
@@ -33,6 +47,8 @@
                         [(ngModel)]="solicitacao.tipoDocumento" name="tipoDocumento"/>
                 </div>
             </div> 
+        </div>   
+        <div class = "row">
             <div class = "col-md-6">
                 <div class = "form-group">
                     <label>Origem_solicitacao: *</label>
@@ -46,13 +62,13 @@
                     <input type="text" class="form-control"
                         [(ngModel)]="solicitacao.codUsuarioSolicitante" name="codUsuarioSolicitante"/>
                 </div>
-            </div> 
-            <div class="row">
-                <div class = "col-md-2">
+            </div>
+        </div> 
+        <div class="row">
+            <div class = "col-md-2">
                     <button type="submit" class="btn btn-success" >
                         <i class="fa fa-save"></i>Salvar
                     </button>
-                </div>
             </div>
         </div>
     </form>
