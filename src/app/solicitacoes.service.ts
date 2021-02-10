@@ -15,13 +15,8 @@ export class SolicitacoesService {
     return this.http.post<Solicitacao>('http://localhost:8080/api/solicitacoes',solicitacao);
    }
 
-  getSolicitacao() : Solicitacao {
-    let solicitacao: Solicitacao = new Solicitacao();
-    solicitacao.idOperacao=  1;
-    solicitacao.tipoDocumento='aa';
-    solicitacao.origemSolicitacao='aa';
-    solicitacao.codUsuarioSolicitante=2;
-    return solicitacao;
-  }
+   getSolicitacoes(): Observable <Solicitacao[]>{
+    return this.http.get<Solicitacao[]>('http://localhost:8080/api/solicitacoes');
+   }
 
 }

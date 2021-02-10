@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 import { Solicitacao } from '../solicitacao';
 import { SolicitacoesService } from '../../solicitacoes.service';
-import { Subscriber } from 'rxjs';
+import { Router } from '@angular/router';
+
 
 
 @Component({
@@ -16,11 +17,17 @@ export class SolicitacoesFormComponent implements OnInit {
   success: boolean =false;
   errors: String[];
 
-  constructor( private service : SolicitacoesService ) { 
+  constructor( private service : SolicitacoesService ,
+    private router: Router
+    ) { 
     this.solicitacao = new Solicitacao();
   }
 
   ngOnInit(): void {
+  }
+
+  voltarParaListagem(){
+    this.router.navigate(['/solicitacoes-lista'])
   }
 
   onSubmit(){

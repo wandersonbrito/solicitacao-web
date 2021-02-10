@@ -1,0 +1,42 @@
+<h1 class="mt-4">Solicitações</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Consulta</li>
+</ol>
+<div class="container">
+<div class="row">
+    <div class = "col-md-2">
+            <button class="btn btn-primary" (click)="novoCadastro()" >
+                <i class="fa fa-plus"></i> Novo
+            </button>
+    </div>
+</div>
+<div class="row">
+    <br/>
+    <div class = "col-md-12">
+        <table CLASS="table table-condensed table-hover">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>ID OOPERAÇÃO</th>
+                    <th>TIPO DE SOLICITACAO</th>
+                    <th>ORIGEM DA SOLICITACAO</th>
+                    <th>USUARIO SOLICITANTE</th>
+                    <th>DATA DA SOLICITAÇÃO</th>
+                </tr>
+
+            </thead>
+            <tbody>
+                <tr *ngFor= "let solicitacao of solicitacoes">
+                    <td>{{ solicitacao.id }}</td>
+                    <td>{{ solicitacao.idOperacao }}</td>
+                    <td>{{ solicitacao.tipoDocumento }}</td>
+                    <td>{{ solicitacao.origemSolicitacao }}</td>
+                    <td>{{ solicitacao.codUsuarioSolicitante }}</td>
+                    <td>{{ solicitacao.dataSolicitacao }}</td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>

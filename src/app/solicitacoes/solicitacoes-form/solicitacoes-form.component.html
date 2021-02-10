@@ -7,7 +7,7 @@
         <div class = "row">
             <div class = "col-md-12">
                 <div class="alert alert-success" role="alert" *ngIf="success == true">
-                    Solicitação Salva/Atualizada com Sucesso!
+                    Solicitação salva/atualizada com sucesso!
                 </div>
                 <div class="alert alert-danger" role="alert" *ngFor="let erro of errors">
                     {{ erro }}
@@ -18,14 +18,14 @@
         <div class = "row" *ngIf="solicitacao.id">
             <div class = "col-md-6">
                 <div class = "form-group">
-                    <label>id:</label>
+                    <label>Identificação da solicitação:</label>
                     <input type="text" [ngModel]="solicitacao.id" name="id"  class="form-control" 
                     disabled ="true"/>
                 </div>
             </div>  
             <div class = "col-md-6">
                 <div class = "form-group">
-                    <label>Data Solicitação:</label>
+                    <label>Data solicitação:</label>
                     <input type="text" class="form-control"
                         [ngModel]="solicitacao.dataSolicitacao" name="dataSolicitacao" disabled ="true"/>
                 </div>
@@ -35,14 +35,14 @@
         <div class = "row">
             <div class = "col-md-6">
                 <div class = "form-group">
-                    <label>Id_operacao: *</label>
+                    <label>Id da operacao: *</label>
                     <input type="text" class="form-control"
                     [(ngModel)]="solicitacao.idOperacao" name="idOperacao"/>
                 </div>
             </div>  
             <div class = "col-md-6">
                 <div class = "form-group">
-                    <label>tipo_documento: *</label>
+                    <label>Tipo documento solicitado: *</label>
                     <input type="text" class="form-control" 
                         [(ngModel)]="solicitacao.tipoDocumento" name="tipoDocumento"/>
                 </div>
@@ -65,9 +65,12 @@
             </div>
         </div> 
         <div class="row">
-            <div class = "col-md-2">
+            <div class = "col-md-3">
                     <button type="submit" class="btn btn-success" >
-                        <i class="fa fa-save"></i>Salvar
+                        <i class="fa fa-save"></i> Salvar
+                    </button>
+                    <button type="button" class="btn btn-danger ml-1" (click)="voltarParaListagem()">
+                        <i class="fa fa-arrow-alt-circle-left"></i> Voltar
                     </button>
             </div>
         </div>
