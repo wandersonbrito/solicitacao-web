@@ -11,6 +11,10 @@ import { Router } from '@angular/router';
 export class SolicitacoesListaComponent implements OnInit {
 
   solicitacoes: Solicitacao[] = [];
+  solicitacaoSelecionada: Solicitacao;
+  messagemSucesso: string;
+  mensagemErro: string;
+
 
   constructor(private service: SolicitacoesService,
               private router : Router) {}
@@ -24,5 +28,18 @@ export class SolicitacoesListaComponent implements OnInit {
   novoCadastro(){
     this.router.navigate(['solicitacoes-form'])
   }
+
+  preparaDelecao(solicitacao: Solicitacao){
+    this.solicitacaoSelecionada = solicitacao;
+  }
+
+  deletarSolicitacao(){
+    this.service
+    .deletarSolicitacao(this.solicitacaoSelecionada)
+    .subscribe( response => {
+                              this.messagemSucesso = 'Solicitação deletada com sucesso'
+                              this.ngOnInit()},
+                responseError => this.mensagemErro = 'Ocorreu um erro ao deletar solicitação')
+    }
 
 }

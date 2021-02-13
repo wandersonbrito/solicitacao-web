@@ -3,40 +3,78 @@
     <li class="breadcrumb-item active">Consulta</li>
 </ol>
 <div class="container">
-<div class="row">
-    <div class = "col-md-2">
-            <button class="btn btn-primary" (click)="novoCadastro()" >
-                <i class="fa fa-plus"></i> Novo
-            </button>
+    <div class = "row">
+        <div class = "col-md-12">
+            <div class="alert alert-success" role="alert" *ngIf="messagemSucesso">
+                {{ messagemSucesso }}
+            </div>
+            <div class="alert alert-danger" role="alert" *ngFor="mensagemErro">
+                {{ mensagemErro }}
+            </div>
+        </div>  
     </div>
-</div>
-<div class="row">
-    <br/>
-    <div class = "col-md-12">
-        <table CLASS="table table-condensed table-hover">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>ID OOPERAÇÃO</th>
-                    <th>TIPO DE SOLICITACAO</th>
-                    <th>ORIGEM DA SOLICITACAO</th>
-                    <th>USUARIO SOLICITANTE</th>
-                    <th>DATA DA SOLICITAÇÃO</th>
-                </tr>
-
-            </thead>
-            <tbody>
-                <tr *ngFor= "let solicitacao of solicitacoes">
-                    <td>{{ solicitacao.id }}</td>
-                    <td>{{ solicitacao.idOperacao }}</td>
-                    <td>{{ solicitacao.tipoDocumento }}</td>
-                    <td>{{ solicitacao.origemSolicitacao }}</td>
-                    <td>{{ solicitacao.codUsuarioSolicitante }}</td>
-                    <td>{{ solicitacao.dataSolicitacao }}</td>
-                </tr>
-
-            </tbody>
-        </table>
+    <div class="row">
+        <div class = "col-md-2">
+                <button class="btn btn-primary" (click)="novoCadastro()" >
+                    <i class="fa fa-plus"></i> Novo
+                </button>
+        </div>
     </div>
-</div>
+    <div class="row">
+        <br/>
+        <div class = "col-md-12">
+            <table CLASS="table table-condensed table-hover">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>ID OOPERAÇÃO</th>
+                        <th>TIPO DE SOLICITACAO</th>
+                        <th>ORIGEM DA SOLICITACAO</th>
+                        <th>USUARIO SOLICITANTE</th>
+                        <th>DATA DA SOLICITAÇÃO</th>
+                    </tr>
+
+                </thead>
+                <tbody>
+                    <tr *ngFor= "let solicitacao of solicitacoes">
+
+                        <td>{{ solicitacao.id }}</td>
+                        <td>{{ solicitacao.idOperacao }}</td>
+                        <td>{{ solicitacao.tipoDocumento }}</td>
+                        <td>{{ solicitacao.origemSolicitacao }}</td>
+                        <td>{{ solicitacao.codUsuarioSolicitante }}</td>
+                        <td>{{ solicitacao.dataSolicitacao }}</td>
+                        <td>
+                            <button class="btn btn-primary" 
+                            routerLink="/solicitacoes-form/{{ solicitacao.id }}">
+                                <i class="fa fa-edit"></i>
+                            </button>
+
+                            <button class="btn btn-danger" (click)="preparaDelecao(solicitacao)"
+                                    data-toggle="modal" data-target="#modalDelecao">
+                                <i class="fa fa-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div id="modalDelecao" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4>Confirmação</h4>
+                </div>
+                <div class="modal-body" *ngIf="solicitacaoSelecionada">
+                   A sua solicitação de documento para o id operação: {{ solicitacaoSelecionada.idOperacao }} será excluída. Confirmar?
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-success" (click)="deletarSolicitacao()" data-dismiss="modal">Confirmar</button>
+                    <button class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                 </div>
+            </div>
+            
+        </div>
+    </div>
 </div>

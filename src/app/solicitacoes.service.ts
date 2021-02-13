@@ -15,8 +15,19 @@ export class SolicitacoesService {
     return this.http.post<Solicitacao>('http://localhost:8080/api/solicitacoes',solicitacao);
    }
 
+   atualizar( solicitacao : Solicitacao ) : Observable<any> {
+    return this.http.put<Solicitacao>(`http://localhost:8080/api/solicitacoes/${solicitacao.id}`,solicitacao);
+   }
+
    getSolicitacoes(): Observable <Solicitacao[]>{
     return this.http.get<Solicitacao[]>('http://localhost:8080/api/solicitacoes');
    }
 
+   getSolicitacoesById(id: number) : Observable<Solicitacao>{
+     return this.http.get<any>(`http://localhost:8080/api/solicitacoes/${id}`);
+   }
+
+   deletarSolicitacao(solicitacao: Solicitacao) : Observable<any>{
+    return this.http.delete<any>(`http://localhost:8080/api/solicitacoes/${solicitacao.id}`);
+  }
 }

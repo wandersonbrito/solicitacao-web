@@ -1,6 +1,6 @@
 <h1 class="mt-4">Solicitações ao Banco do Brasil</h1>
 <ol class="breadcrumb mb-4">
-    <li class="breadcrumb-item active">Realizar solicitação</li>
+    <li class="breadcrumb-item active">{{ solicitacao.id ? 'Alterar Solicitação' : 'Realizar solicitação' }}</li>
 </ol>
 <div class  = "container">
     <form #solicitacaoForm="ngForm" (ngSubmit)="onSubmit()">
@@ -66,8 +66,11 @@
         </div> 
         <div class="row">
             <div class = "col-md-3">
-                    <button type="submit" class="btn btn-success" >
+                    <button type="submit" class="btn btn-success" *ngIf="!solicitacao.id" >
                         <i class="fa fa-save"></i> Salvar
+                    </button>
+                    <button type="submit" class="btn btn-primary" *ngIf="solicitacao.id">
+                        <i class="fa fa-sync-alt"></i> Alterar
                     </button>
                     <button type="button" class="btn btn-danger ml-1" (click)="voltarParaListagem()">
                         <i class="fa fa-arrow-alt-circle-left"></i> Voltar

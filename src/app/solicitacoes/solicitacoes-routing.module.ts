@@ -5,6 +5,7 @@ import { SolicitacoesListaComponent } from './solicitacoes-lista/solicitacoes-li
 
 const routes: Routes = [
   { path  : 'solicitacoes-form', component: SolicitacoesFormComponent},
+  { path  : 'solicitacoes-form/:id', component: SolicitacoesFormComponent},
   { path  : 'solicitacoes-lista', component: SolicitacoesListaComponent}
 ];
 
